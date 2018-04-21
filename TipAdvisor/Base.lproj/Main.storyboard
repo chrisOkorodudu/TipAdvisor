@@ -70,17 +70,32 @@
                                 <rect key="frame" x="16" y="96" width="343" height="228"/>
                             </mapView>
                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="h86-yL-E9p">
-                                <rect key="frame" x="28" y="356" width="320" height="177"/>
+                                <rect key="frame" x="0.0" y="344" width="375" height="216"/>
                             </pickerView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Jk-KG-4L0">
+                                <rect key="frame" x="179.5" y="597.5" width="17" height="23.5"/>
+                                <attributedString key="attributedText">
+                                    <fragment content="   ">
+                                        <attributes>
+                                            <color key="NSColor" red="1" green="0.81960784313725488" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
+                                            <font key="NSFont" size="20" name="Chalkboard-Bold"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="Erc-R9-UD3" firstAttribute="bottom" secondItem="h86-yL-E9p" secondAttribute="bottom" constant="134" id="Elw-cl-vFj"/>
                             <constraint firstItem="Erc-R9-UD3" firstAttribute="bottom" secondItem="aGW-Ih-J0K" secondAttribute="bottom" constant="343" id="J6d-vn-8rj"/>
                             <constraint firstItem="Erc-R9-UD3" firstAttribute="trailing" secondItem="aGW-Ih-J0K" secondAttribute="trailing" constant="16" id="MUp-Gq-JTO"/>
-                            <constraint firstItem="h86-yL-E9p" firstAttribute="centerX" secondItem="Erc-R9-UD3" secondAttribute="centerX" id="PcT-D1-uQ3"/>
-                            <constraint firstItem="h86-yL-E9p" firstAttribute="top" secondItem="aGW-Ih-J0K" secondAttribute="bottom" constant="32" id="UYr-hu-l3C"/>
+                            <constraint firstItem="3Jk-KG-4L0" firstAttribute="top" secondItem="h86-yL-E9p" secondAttribute="bottom" constant="37.5" id="P45-mN-YtM"/>
+                            <constraint firstItem="h86-yL-E9p" firstAttribute="leading" secondItem="1VK-HO-rFA" secondAttribute="leading" id="QH2-Vq-jAP"/>
+                            <constraint firstItem="Erc-R9-UD3" firstAttribute="bottom" secondItem="3Jk-KG-4L0" secondAttribute="bottom" constant="46" id="QTJ-rX-7yr"/>
                             <constraint firstItem="aGW-Ih-J0K" firstAttribute="leading" secondItem="Erc-R9-UD3" secondAttribute="leading" constant="16" id="aAq-u3-OmD"/>
+                            <constraint firstItem="h86-yL-E9p" firstAttribute="centerX" secondItem="aGW-Ih-J0K" secondAttribute="centerX" id="cKk-jR-h6C"/>
+                            <constraint firstItem="3Jk-KG-4L0" firstAttribute="centerX" secondItem="Erc-R9-UD3" secondAttribute="centerX" id="cLp-Yr-Wz8"/>
+                            <constraint firstItem="h86-yL-E9p" firstAttribute="top" secondItem="aGW-Ih-J0K" secondAttribute="bottom" constant="20" id="wSc-os-UsM"/>
                             <constraint firstItem="aGW-Ih-J0K" firstAttribute="top" secondItem="Erc-R9-UD3" secondAttribute="top" constant="76" id="x9L-jd-BTh"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Erc-R9-UD3"/>
@@ -89,6 +104,7 @@
                     <connections>
                         <outlet property="countryPickerView" destination="h86-yL-E9p" id="cKu-zl-Wer"/>
                         <outlet property="mapView" destination="aGW-Ih-J0K" id="hDN-1t-OJD"/>
+                        <outlet property="messageLabel" destination="3Jk-KG-4L0" id="P9Z-ks-Dfc"/>
                         <outlet property="searchDisplayController" destination="Z4o-Rv-78k" id="5QC-kT-RVk"/>
                     </connections>
                 </viewController>

@@ -20,29 +20,33 @@ class LocationViewController: UIViewController, CLLocationManagerDelegate, UIPic
     private var countryString: String = ""
     private var tipLookUp = [String:String]()
     private var countryList = [String]()
-
+    @IBOutlet weak var messageLabel: UILabel!
     
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-//        rgb(38,84,124)
-        self.view.backgroundColor = UIColor(red: 38/255, green: 84/255, blue: 124/255, alpha: 1)
+    override func viewWillAppear(_ animated: Bool) {
         
         //location manager set up
         locationManager = CLLocationManager()
         locationManager.delegate = self
         locationManager.requestWhenInUseAuthorization()
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
-        
         locationManager.startUpdatingLocation()
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        self.view.backgroundColor = UIColor(red: 38/255, green: 84/255, blue: 124/255, alpha: 1)
+        
+        
+        if (userLocation == nil) {
+            messageLabel.text = "Pick your country below"
+        }
         
         //picker setup
         countryPickerView.delegate = self
         self.readFile()
         countryPickerView.reloadAllComponents()
-        
-        
-        
     }
 
     override func didReceiveMemoryWarning() {
@@ -75,8 +79,21 @@ class LocationViewController: UIViewController, CLLocationManagerDelegate, UIPic
             if placemarks!.count > 0 {
                 let pm = placemarks![0]
                 print("The location is: ",pm.locality!, ",", pm.country!)
+
                 self.cityString = pm.locality!
                 self.countryString = pm.country!
+                self.messageLabel.text = "Looks like you are in: \(pm.country!)"
+                
+                
+                if (self.countryList.count>0) {
+                    for i in 0...self.countryList.count-1 {
+                        if (self.countryList[i] == self.countryString) {
+                            self.countryPickerView.selectRow(i, inComponent: 0, animated: false)
+                        }
+                    }
+                }
+                
+                
             }
             else {
                 print("Problem with the data received from geocoder")
@@ -99,12 +116,12 @@ class LocationViewController: UIViewController, CLLocationManagerDelegate, UIPic
     func pickerView(_ pickerView: UIPickerView,
                     titleForRow row: Int,
                     forComponent component: Int) -> String? {
-        return countryList[row]
-
+        return self.countryList[row]
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        print("contact")
+        self.countryString = self.countryList[row]
+        messageLabel.text = "Looks like you are in: \(self.countryString)"
     }
 
 
