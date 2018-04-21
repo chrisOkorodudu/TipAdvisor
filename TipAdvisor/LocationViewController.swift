@@ -10,18 +10,23 @@ import UIKit
 import MapKit
 import CoreLocation
 
-class LocationViewController: UIViewController, CLLocationManagerDelegate {
+class LocationViewController: UIViewController, CLLocationManagerDelegate, UIPickerViewDelegate, UIPickerViewDataSource {
 
     @IBOutlet weak var mapView: MKMapView!
-//    var locationManager = CLLocationManager?
+    @IBOutlet weak var countryPickerView: UIPickerView!
     private var locationManager: CLLocationManager!
     private var userLocation: CLLocation?
     private var cityString: String = ""
+    private var countryString: String = ""
+    private var tipLookUp = [String:String]()
+    private var countryList = [String]()
 
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+//        rgb(38,84,124)
+        self.view.backgroundColor = UIColor(red: 38/255, green: 84/255, blue: 124/255, alpha: 1)
         
         //location manager set up
         locationManager = CLLocationManager()
@@ -29,10 +34,14 @@ class LocationViewController: UIViewController, CLLocationManagerDelegate {
         locationManager.requestWhenInUseAuthorization()
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         
-        
         locationManager.startUpdatingLocation()
-            
-            
+        
+        //picker setup
+        countryPickerView.delegate = self
+        self.readFile()
+        countryPickerView.reloadAllComponents()
+        
+        
         
     }
 
@@ -41,37 +50,10 @@ class LocationViewController: UIViewController, CLLocationManagerDelegate {
         // Dispose of any resources that can be recreated.
     }
     
-    func getPlacemark(forLocation location: CLLocation, completionHandler: @escaping (CLPlacemark?, String?) -> ()) {
-        let geocoder = CLGeocoder()
-        
-        geocoder.reverseGeocodeLocation(location, completionHandler: {
-            placemarks, error in
-            
-            if let err = error {
-                completionHandler(nil, err.localizedDescription)
-            } else if let placemarkArray = placemarks {
-                if let placemark = placemarkArray.first {
-                    completionHandler(placemark, nil)
-                } else {
-                    completionHandler(nil, "Placemark was nil")
-                }
-            } else {
-                completionHandler(nil, "Unknown error")
-            }
-        })
-        
-    }
-    
-    
-    
-    
     // MARK - CLLocationManagerDelegate
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        let userLocation:CLLocation = locations[locations.count-1] as CLLocation
         
-        // Call stopUpdatingLocation() to stop listening for location updates,
-        // other wise this function will be called every time when user location changes.
-        //manager.stopUpdatingLocation()
+        let userLocation:CLLocation = locations[locations.count-1] as CLLocation
         
         let center = CLLocationCoordinate2D(latitude: userLocation.coordinate.latitude, longitude: userLocation.coordinate.longitude)
         let region = MKCoordinateRegion(center: center, span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
@@ -81,33 +63,77 @@ class LocationViewController: UIViewController, CLLocationManagerDelegate {
         // Drop a pin at user's Current Location
         let myAnnotation: MKPointAnnotation = MKPointAnnotation()
         myAnnotation.coordinate = CLLocationCoordinate2DMake(userLocation.coordinate.latitude, userLocation.coordinate.longitude);
-        myAnnotation.title = "Current location"
         mapView.addAnnotation(myAnnotation)
         
         CLGeocoder().reverseGeocodeLocation(userLocation, completionHandler: {(placemarks, error) -> Void in
-            print(userLocation)
+            print("USER LOCATION: ", userLocation)
             
             if error != nil {
                 print("Reverse geocoder failed with error" + (error?.localizedDescription)!)
                 return
             }
-            
             if placemarks!.count > 0 {
                 let pm = placemarks![0]
-                print("The location is: ",pm.locality!)
+                print("The location is: ",pm.locality!, ",", pm.country!)
                 self.cityString = pm.locality!
+                self.countryString = pm.country!
             }
             else {
                 print("Problem with the data received from geocoder")
             }
         })
         
-//        let placeLocation = CLLocation(latitude: userLocation.coordinate.latitude, longitude: userLocation.coordinate.longitude)
     }
     
     
+    
+    //MARK: Country Picker View delegate
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return countryList.count
+    }
+    
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+
+    func pickerView(_ pickerView: UIPickerView,
+                    titleForRow row: Int,
+                    forComponent component: Int) -> String? {
+        return countryList[row]
+
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        print("contact")
+    }
 
 
+    
+
+    
+    
+    //MARK: read country input file, store in dictionary
+    func readFile() {
+        if let path = Bundle.main.path(forResource: "countries", ofType: "csv") {
+            do {
+                let data = try String(contentsOfFile: path, encoding: .utf8)
+                let countries = data.components(separatedBy: .newlines)
+                
+                for line in countries {
+                    let country = line.split(separator: ",")
+                    if (country.count == 2) {
+                        let tipCountry = String(country[0])
+                        let tip = String(country[1])
+                        self.tipLookUp[tipCountry] = tip
+                        self.countryList.append(tipCountry)
+                    }
+                }
+                
+            } catch {
+                print(error)
+            }
+        }
+    }
 
     /*
     // MARK: - Navigation

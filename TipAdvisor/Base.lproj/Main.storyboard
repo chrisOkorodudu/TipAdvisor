@@ -25,28 +25,28 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jzc-rr-WBm">
-                                <rect key="frame" x="139.5" y="477" width="104" height="35"/>
+                                <rect key="frame" x="135.5" y="477" width="104" height="35"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                 <state key="normal" title="Get Started!"/>
                                 <connections>
-                                    <segue destination="wIc-yR-n9Z" kind="show" id="uFq-Z7-t2T"/>
+                                    <segue destination="wIc-yR-n9Z" kind="show" id="26X-dD-RgS"/>
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="nU3-BM-Swc">
-                                <rect key="frame" x="67" y="170.5" width="249" height="243.5"/>
+                                <rect key="frame" x="16" y="171" width="343" height="270"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="jzc-rr-WBm" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="BtH-vx-u8K"/>
+                            <constraint firstItem="jzc-rr-WBm" firstAttribute="top" secondItem="nU3-BM-Swc" secondAttribute="bottom" constant="36" id="DCB-iq-tfa"/>
                             <constraint firstAttribute="trailing" secondItem="o8l-Am-xlM" secondAttribute="trailing" constant="57" id="GRR-hm-dRQ"/>
-                            <constraint firstItem="nU3-BM-Swc" firstAttribute="top" secondItem="o8l-Am-xlM" secondAttribute="bottom" constant="53.5" id="YrK-KY-U4T"/>
+                            <constraint firstItem="nU3-BM-Swc" firstAttribute="top" secondItem="o8l-Am-xlM" secondAttribute="bottom" constant="54" id="OWF-BS-yiF"/>
                             <constraint firstItem="o8l-Am-xlM" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="d24-bt-FH6"/>
-                            <constraint firstItem="nU3-BM-Swc" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="67" id="dhP-ov-VSg"/>
-                            <constraint firstItem="jzc-rr-WBm" firstAttribute="centerX" secondItem="nU3-BM-Swc" secondAttribute="centerX" id="llp-cB-5wc"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="jzc-rr-WBm" secondAttribute="bottom" constant="155" id="nk8-E2-d2i"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="nU3-BM-Swc" secondAttribute="trailing" constant="59" id="pRU-PW-TNc"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="nU3-BM-Swc" secondAttribute="trailing" constant="16" id="tpg-8K-3oO"/>
                             <constraint firstItem="o8l-Am-xlM" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="76" id="vxr-Z4-lYN"/>
-                            <constraint firstItem="jzc-rr-WBm" firstAttribute="top" secondItem="nU3-BM-Swc" secondAttribute="bottom" constant="63" id="zt9-5k-ATN"/>
+                            <constraint firstItem="nU3-BM-Swc" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="zYc-vF-9In"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -66,24 +66,41 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="aGW-Ih-J0K">
-                                <rect key="frame" x="50" y="96" width="274" height="228"/>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aGW-Ih-J0K">
+                                <rect key="frame" x="16" y="96" width="343" height="228"/>
                             </mapView>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="h86-yL-E9p">
+                                <rect key="frame" x="28" y="356" width="320" height="177"/>
+                            </pickerView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="Erc-R9-UD3" firstAttribute="bottom" secondItem="h86-yL-E9p" secondAttribute="bottom" constant="134" id="Elw-cl-vFj"/>
                             <constraint firstItem="Erc-R9-UD3" firstAttribute="bottom" secondItem="aGW-Ih-J0K" secondAttribute="bottom" constant="343" id="J6d-vn-8rj"/>
-                            <constraint firstItem="Erc-R9-UD3" firstAttribute="trailing" secondItem="aGW-Ih-J0K" secondAttribute="trailing" constant="51" id="Q8E-sP-YHA"/>
-                            <constraint firstItem="aGW-Ih-J0K" firstAttribute="leading" secondItem="Erc-R9-UD3" secondAttribute="leading" constant="50" id="nlE-X4-Sc9"/>
+                            <constraint firstItem="Erc-R9-UD3" firstAttribute="trailing" secondItem="aGW-Ih-J0K" secondAttribute="trailing" constant="16" id="MUp-Gq-JTO"/>
+                            <constraint firstItem="h86-yL-E9p" firstAttribute="centerX" secondItem="Erc-R9-UD3" secondAttribute="centerX" id="PcT-D1-uQ3"/>
+                            <constraint firstItem="h86-yL-E9p" firstAttribute="top" secondItem="aGW-Ih-J0K" secondAttribute="bottom" constant="32" id="UYr-hu-l3C"/>
+                            <constraint firstItem="aGW-Ih-J0K" firstAttribute="leading" secondItem="Erc-R9-UD3" secondAttribute="leading" constant="16" id="aAq-u3-OmD"/>
                             <constraint firstItem="aGW-Ih-J0K" firstAttribute="top" secondItem="Erc-R9-UD3" secondAttribute="top" constant="76" id="x9L-jd-BTh"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Erc-R9-UD3"/>
                     </view>
+                    <navigationItem key="navigationItem" id="vQu-Hx-Nri"/>
                     <connections>
+                        <outlet property="countryPickerView" destination="h86-yL-E9p" id="cKu-zl-Wer"/>
                         <outlet property="mapView" destination="aGW-Ih-J0K" id="hDN-1t-OJD"/>
+                        <outlet property="searchDisplayController" destination="Z4o-Rv-78k" id="5QC-kT-RVk"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kQ4-qf-JOB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <searchDisplayController id="Z4o-Rv-78k">
+                    <connections>
+                        <outlet property="delegate" destination="wIc-yR-n9Z" id="4th-3B-JLh"/>
+                        <outlet property="searchContentsController" destination="wIc-yR-n9Z" id="rju-98-UpX"/>
+                        <outlet property="searchResultsDataSource" destination="wIc-yR-n9Z" id="h3a-1w-Jp4"/>
+                        <outlet property="searchResultsDelegate" destination="wIc-yR-n9Z" id="dVA-7B-cK4"/>
+                    </connections>
+                </searchDisplayController>
             </objects>
             <point key="canvasLocation" x="904.79999999999995" y="133.5832083958021"/>
         </scene>

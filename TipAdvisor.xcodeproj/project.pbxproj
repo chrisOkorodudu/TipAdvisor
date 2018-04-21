@@ -15,6 +15,7 @@
 		95DCA8B6208A5EBC00189E68 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 95DCA8B4208A5EBC00189E68 /* LaunchScreen.storyboard */; };
 		95DCA8C1208A5EBC00189E68 /* TipAdvisorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95DCA8C0208A5EBC00189E68 /* TipAdvisorTests.swift */; };
 		95DCA8CC208A726300189E68 /* LocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95DCA8CB208A726300189E68 /* LocationViewController.swift */; };
+		95E34B6D208BCE40000795B9 /* countries.csv in Resources */ = {isa = PBXBuildFile; fileRef = 95E34B6C208BCE40000795B9 /* countries.csv */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +41,7 @@
 		95DCA8C0208A5EBC00189E68 /* TipAdvisorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipAdvisorTests.swift; sourceTree = "<group>"; };
 		95DCA8C2208A5EBC00189E68 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		95DCA8CB208A726300189E68 /* LocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationViewController.swift; sourceTree = "<group>"; };
+		95E34B6C208BCE40000795B9 /* countries.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = countries.csv; path = ../../../../Documents/countries.csv; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +91,7 @@
 				95DCA8B4208A5EBC00189E68 /* LaunchScreen.storyboard */,
 				95DCA8B7208A5EBC00189E68 /* Info.plist */,
 				95DCA8AF208A5EBB00189E68 /* TipAdvisor.xcdatamodeld */,
+				95E34B6C208BCE40000795B9 /* countries.csv */,
 			);
 			path = TipAdvisor;
 			sourceTree = "<group>";
@@ -186,6 +189,7 @@
 				95DCA8B6208A5EBC00189E68 /* LaunchScreen.storyboard in Resources */,
 				95DCA8B3208A5EBC00189E68 /* Assets.xcassets in Resources */,
 				95DCA8AE208A5EBB00189E68 /* Main.storyboard in Resources */,
+				95E34B6D208BCE40000795B9 /* countries.csv in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
