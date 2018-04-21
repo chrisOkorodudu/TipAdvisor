@@ -15,7 +15,8 @@ class LocationViewController: UIViewController, CLLocationManagerDelegate {
     @IBOutlet weak var mapView: MKMapView!
 //    var locationManager = CLLocationManager?
     private var locationManager: CLLocationManager!
-    private var currentLocation: CLLocation?
+    private var userLocation: CLLocation?
+    private var cityString: String = ""
 
     
     
@@ -40,11 +41,31 @@ class LocationViewController: UIViewController, CLLocationManagerDelegate {
         // Dispose of any resources that can be recreated.
     }
     
+    func getPlacemark(forLocation location: CLLocation, completionHandler: @escaping (CLPlacemark?, String?) -> ()) {
+        let geocoder = CLGeocoder()
+        
+        geocoder.reverseGeocodeLocation(location, completionHandler: {
+            placemarks, error in
+            
+            if let err = error {
+                completionHandler(nil, err.localizedDescription)
+            } else if let placemarkArray = placemarks {
+                if let placemark = placemarkArray.first {
+                    completionHandler(placemark, nil)
+                } else {
+                    completionHandler(nil, "Placemark was nil")
+                }
+            } else {
+                completionHandler(nil, "Unknown error")
+            }
+        })
+        
+    }
     
     
-    //MARK: Location manager delegate
+    
+    
     // MARK - CLLocationManagerDelegate
-    
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         let userLocation:CLLocation = locations[locations.count-1] as CLLocation
         
@@ -62,7 +83,31 @@ class LocationViewController: UIViewController, CLLocationManagerDelegate {
         myAnnotation.coordinate = CLLocationCoordinate2DMake(userLocation.coordinate.latitude, userLocation.coordinate.longitude);
         myAnnotation.title = "Current location"
         mapView.addAnnotation(myAnnotation)
+        
+        CLGeocoder().reverseGeocodeLocation(userLocation, completionHandler: {(placemarks, error) -> Void in
+            print(userLocation)
+            
+            if error != nil {
+                print("Reverse geocoder failed with error" + (error?.localizedDescription)!)
+                return
+            }
+            
+            if placemarks!.count > 0 {
+                let pm = placemarks![0]
+                print("The location is: ",pm.locality!)
+                self.cityString = pm.locality!
+            }
+            else {
+                print("Problem with the data received from geocoder")
+            }
+        })
+        
+//        let placeLocation = CLLocation(latitude: userLocation.coordinate.latitude, longitude: userLocation.coordinate.longitude)
     }
+    
+    
+
+
 
     /*
     // MARK: - Navigation
