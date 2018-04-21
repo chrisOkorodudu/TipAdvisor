@@ -18,27 +18,35 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="We know, tipping can be awkward" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o8l-Am-xlM">
-                                <rect key="frame" x="57" y="96" width="261" height="38"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="We know, tipping can be awkward" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o8l-Am-xlM">
+                                <rect key="frame" x="60" y="96" width="258" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.1019607843" green="0.3921568627" blue="0.58039215690000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nU3-BM-Swc">
-                                <rect key="frame" x="67" y="196" width="241" height="218"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jzc-rr-WBm">
-                                <rect key="frame" x="145" y="482" width="84" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jzc-rr-WBm">
+                                <rect key="frame" x="139.5" y="477" width="104" height="35"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                 <state key="normal" title="Get Started!"/>
+                                <connections>
+                                    <segue destination="wIc-yR-n9Z" kind="show" id="uFq-Z7-t2T"/>
+                                </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="nU3-BM-Swc">
+                                <rect key="frame" x="67" y="170.5" width="249" height="243.5"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="o8l-Am-xlM" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="57" id="NI7-Rj-YsP"/>
-                            <constraint firstItem="o8l-Am-xlM" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="76" id="RgG-ej-F8k"/>
-                            <constraint firstItem="o8l-Am-xlM" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="ejh-uc-y3u"/>
+                            <constraint firstAttribute="trailing" secondItem="o8l-Am-xlM" secondAttribute="trailing" constant="57" id="GRR-hm-dRQ"/>
+                            <constraint firstItem="nU3-BM-Swc" firstAttribute="top" secondItem="o8l-Am-xlM" secondAttribute="bottom" constant="53.5" id="YrK-KY-U4T"/>
+                            <constraint firstItem="o8l-Am-xlM" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="d24-bt-FH6"/>
+                            <constraint firstItem="nU3-BM-Swc" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="67" id="dhP-ov-VSg"/>
+                            <constraint firstItem="jzc-rr-WBm" firstAttribute="centerX" secondItem="nU3-BM-Swc" secondAttribute="centerX" id="llp-cB-5wc"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="jzc-rr-WBm" secondAttribute="bottom" constant="155" id="nk8-E2-d2i"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="nU3-BM-Swc" secondAttribute="trailing" constant="59" id="pRU-PW-TNc"/>
+                            <constraint firstItem="o8l-Am-xlM" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="76" id="vxr-Z4-lYN"/>
+                            <constraint firstItem="jzc-rr-WBm" firstAttribute="top" secondItem="nU3-BM-Swc" secondAttribute="bottom" constant="63" id="zt9-5k-ATN"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -49,6 +57,35 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="136.80000000000001" y="133.5832083958021"/>
+        </scene>
+        <!--Location View Controller-->
+        <scene sceneID="uVr-nc-80g">
+            <objects>
+                <viewController id="wIc-yR-n9Z" customClass="LocationViewController" customModule="TipAdvisor" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="1VK-HO-rFA">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="aGW-Ih-J0K">
+                                <rect key="frame" x="50" y="96" width="274" height="228"/>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Erc-R9-UD3" firstAttribute="bottom" secondItem="aGW-Ih-J0K" secondAttribute="bottom" constant="343" id="J6d-vn-8rj"/>
+                            <constraint firstItem="Erc-R9-UD3" firstAttribute="trailing" secondItem="aGW-Ih-J0K" secondAttribute="trailing" constant="51" id="Q8E-sP-YHA"/>
+                            <constraint firstItem="aGW-Ih-J0K" firstAttribute="leading" secondItem="Erc-R9-UD3" secondAttribute="leading" constant="50" id="nlE-X4-Sc9"/>
+                            <constraint firstItem="aGW-Ih-J0K" firstAttribute="top" secondItem="Erc-R9-UD3" secondAttribute="top" constant="76" id="x9L-jd-BTh"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Erc-R9-UD3"/>
+                    </view>
+                    <connections>
+                        <outlet property="mapView" destination="aGW-Ih-J0K" id="hDN-1t-OJD"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kQ4-qf-JOB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="904.79999999999995" y="133.5832083958021"/>
         </scene>
     </scenes>
 </document>

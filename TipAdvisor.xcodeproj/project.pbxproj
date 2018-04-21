@@ -14,6 +14,7 @@
 		95DCA8B3208A5EBC00189E68 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 95DCA8B2208A5EBC00189E68 /* Assets.xcassets */; };
 		95DCA8B6208A5EBC00189E68 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 95DCA8B4208A5EBC00189E68 /* LaunchScreen.storyboard */; };
 		95DCA8C1208A5EBC00189E68 /* TipAdvisorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95DCA8C0208A5EBC00189E68 /* TipAdvisorTests.swift */; };
+		95DCA8CC208A726300189E68 /* LocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95DCA8CB208A726300189E68 /* LocationViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +39,7 @@
 		95DCA8BC208A5EBC00189E68 /* TipAdvisorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TipAdvisorTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		95DCA8C0208A5EBC00189E68 /* TipAdvisorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipAdvisorTests.swift; sourceTree = "<group>"; };
 		95DCA8C2208A5EBC00189E68 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		95DCA8CB208A726300189E68 /* LocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +84,7 @@
 				95DCA8A8208A5EBB00189E68 /* AppDelegate.swift */,
 				95DCA8AA208A5EBB00189E68 /* ViewController.swift */,
 				95DCA8AC208A5EBB00189E68 /* Main.storyboard */,
+				95DCA8CB208A726300189E68 /* LocationViewController.swift */,
 				95DCA8B2208A5EBC00189E68 /* Assets.xcassets */,
 				95DCA8B4208A5EBC00189E68 /* LaunchScreen.storyboard */,
 				95DCA8B7208A5EBC00189E68 /* Info.plist */,
@@ -203,6 +206,7 @@
 				95DCA8AB208A5EBB00189E68 /* ViewController.swift in Sources */,
 				95DCA8B1208A5EBB00189E68 /* TipAdvisor.xcdatamodeld in Sources */,
 				95DCA8A9208A5EBB00189E68 /* AppDelegate.swift in Sources */,
+				95DCA8CC208A726300189E68 /* LocationViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
