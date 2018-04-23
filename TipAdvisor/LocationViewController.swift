@@ -33,6 +33,8 @@ class LocationViewController: UIViewController, CLLocationManagerDelegate, UIPic
         locationManager.startUpdatingLocation()
     }
     
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -151,6 +153,11 @@ class LocationViewController: UIViewController, CLLocationManagerDelegate, UIPic
             }
         }
     }
+    
+    @IBAction func unwindToViewController (sender: UIStoryboardSegue){
+        
+    }
+
 
     /*
     // MARK: - Navigation
