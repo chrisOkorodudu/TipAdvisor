@@ -10,7 +10,12 @@ import UIKit
 import MapKit
 import CoreLocation
 
-class LocationViewController: UIViewController, CLLocationManagerDelegate, UIPickerViewDelegate, UIPickerViewDataSource {
+protocol CountryDelegate
+{
+    func onCountryReady(type: String)
+}
+
+class LocationViewController: UIViewController, CLLocationManagerDelegate, UIPickerViewDelegate, UIPickerViewDataSource, CountryDelegate {
 
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var countryPickerView: UIPickerView!
@@ -21,6 +26,7 @@ class LocationViewController: UIViewController, CLLocationManagerDelegate, UIPic
     private var tipLookUp = [String:String]()
     private var countryList = [String]()
     @IBOutlet weak var messageLabel: UILabel!
+    private var tipValue: Float = 0
     
     
     override func viewWillAppear(_ animated: Bool) {
@@ -157,16 +163,29 @@ class LocationViewController: UIViewController, CLLocationManagerDelegate, UIPic
     @IBAction func unwindToViewController (sender: UIStoryboardSegue){
         
     }
-
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    
+    func onCountryReady(type: String) {
+        
     }
-    */
+
+
+    
+    // MARK: - Navigatio
+//     In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?){
+        self.tipValue = NSString(string: self.tipLookUp[self.countryString]!).floatValue
+        print(self.tipValue)
+        if segue.destination is SatisfactionViewController {
+            if segue.destination.restorationIdentifier == "SatisfactionViewController" {
+                if let satisfactionViewController = segue.destination as? SatisfactionViewController {
+                    satisfactionViewController.setTipValue(tipAmount: self.tipValue)
+                }
+            }
+        }
+//        if segue.destination.isKind(of: SatisfactionViewController) == true {
+//
+//        }
+    }
+
 
 }

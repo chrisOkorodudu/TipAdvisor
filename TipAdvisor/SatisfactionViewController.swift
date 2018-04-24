@@ -15,9 +15,15 @@ class SatisfactionViewController: UIViewController {
     @IBOutlet weak var satisfaction3Button: UIButton!
     @IBOutlet weak var satisfaction4Button: UIButton!
     @IBOutlet weak var satisfaction5Button: UIButton!
+    private var tipValue: Float = 0
     
     
     var buttons = [UIButton]()
+    
+    func setTipValue(tipAmount: Float) -> Void {
+        self.tipValue = tipAmount
+        print("TIP VALUE: ", self.tipValue)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,6 +33,7 @@ class SatisfactionViewController: UIViewController {
         buttons.append(satisfaction3Button)
         buttons.append(satisfaction4Button)
         buttons.append(satisfaction5Button)
+        
         // Do any additional setup after loading the view.
     }
 
@@ -139,14 +146,28 @@ class SatisfactionViewController: UIViewController {
     
     
     
-    /*
-    // MARK: - Navigation
+    
+     //MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
+//     In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        for i in 0...4 {
+            if (buttons[i].isSelected) {
+                if (i <= 1) {
+                    self.tipValue = self.tipValue + (Float(i) - 1.3)/15
+                } else if (i > 2) {
+                    self.tipValue = self.tipValue + (Float(i)/35)
+                }
+                print("TIP VALUE ADJUSTED", self.tipValue)
+            }
+        }
+        
+        if (segue.destination.restorationIdentifier == "FinalViewController") {
+            if let finalViewController = segue.destination as? FinalViewController {
+                finalViewController.setTipValue(tipAmount: self.tipValue)
+            }
+        }
     }
-    */
+    
 
 }
