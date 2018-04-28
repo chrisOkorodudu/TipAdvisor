@@ -11,6 +11,8 @@
 		95987498208E753D00AD4EEC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 95987497208E753D00AD4EEC /* Assets.xcassets */; };
 		9598749A208E915400AD4EEC /* RoundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95987499208E915400AD4EEC /* RoundButton.swift */; };
 		9598749C208E9A5B00AD4EEC /* FinalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9598749B208E9A5B00AD4EEC /* FinalViewController.swift */; };
+		95D255052094F9860039F968 /* BillScannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95D255042094F9860039F968 /* BillScannerViewController.swift */; };
+		95D255072094FA430039F968 /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95D255062094FA430039F968 /* CameraViewController.swift */; };
 		95DCA8A9208A5EBB00189E68 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95DCA8A8208A5EBB00189E68 /* AppDelegate.swift */; };
 		95DCA8AB208A5EBB00189E68 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95DCA8AA208A5EBB00189E68 /* ViewController.swift */; };
 		95DCA8AE208A5EBB00189E68 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 95DCA8AC208A5EBB00189E68 /* Main.storyboard */; };
@@ -36,6 +38,8 @@
 		95987497208E753D00AD4EEC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		95987499208E915400AD4EEC /* RoundButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundButton.swift; sourceTree = "<group>"; };
 		9598749B208E9A5B00AD4EEC /* FinalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinalViewController.swift; sourceTree = "<group>"; };
+		95D255042094F9860039F968 /* BillScannerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BillScannerViewController.swift; sourceTree = "<group>"; };
+		95D255062094FA430039F968 /* CameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
 		95DCA8A5208A5EBB00189E68 /* TipAdvisor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TipAdvisor.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		95DCA8A8208A5EBB00189E68 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		95DCA8AA208A5EBB00189E68 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -92,6 +96,8 @@
 				95DCA8A8208A5EBB00189E68 /* AppDelegate.swift */,
 				95DCA8AA208A5EBB00189E68 /* ViewController.swift */,
 				95DCA8AC208A5EBB00189E68 /* Main.storyboard */,
+				95D255062094FA430039F968 /* CameraViewController.swift */,
+				95D255042094F9860039F968 /* BillScannerViewController.swift */,
 				9598749B208E9A5B00AD4EEC /* FinalViewController.swift */,
 				95987499208E915400AD4EEC /* RoundButton.swift */,
 				95DCA8CB208A726300189E68 /* LocationViewController.swift */,
@@ -222,7 +228,9 @@
 				95DCA8B1208A5EBB00189E68 /* TipAdvisor.xcdatamodeld in Sources */,
 				95DCA8A9208A5EBB00189E68 /* AppDelegate.swift in Sources */,
 				950AA362208D4805000B565F /* SatisfactionViewController.swift in Sources */,
+				95D255052094F9860039F968 /* BillScannerViewController.swift in Sources */,
 				95DCA8CC208A726300189E68 /* LocationViewController.swift in Sources */,
+				95D255072094FA430039F968 /* CameraViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -299,6 +307,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_BITCODE = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
@@ -359,6 +368,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_BITCODE = NO;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;

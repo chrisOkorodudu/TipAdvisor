@@ -36,15 +36,6 @@ class FinalViewController: UIViewController, UITextFieldDelegate {
     }
     
     //MARK: Text Field Delegate
-//    func textFieldDidEndEditing(_ textField: UITextField) {
-//
-//        totalResult.text = String((1.0 * self.tipValue) * NSString(string: self.userInputAmount.text!).floatValue)
-//
-//        finalBill.text = String((1.0 + self.tipValue) * NSString(string: self.userInputAmount.text!).floatValue)
-//
-//
-//    }
-    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.becomeFirstResponder()
         textField.resignFirstResponder()
