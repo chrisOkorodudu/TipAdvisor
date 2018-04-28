@@ -37,6 +37,7 @@
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="jzc-rr-WBm" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="BtH-vx-u8K"/>
                             <constraint firstItem="jzc-rr-WBm" firstAttribute="top" secondItem="nU3-BM-Swc" secondAttribute="bottom" constant="36" id="DCB-iq-tfa"/>
@@ -49,6 +50,9 @@
                             <constraint firstItem="nU3-BM-Swc" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="zYc-vF-9In"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="jvn-Bh-pG0" appends="YES" id="FcU-LM-f89"/>
+                        </connections>
                     </view>
                     <navigationItem key="navigationItem" id="Ef2-YL-nO5"/>
                     <connections>
@@ -56,6 +60,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <swipeGestureRecognizer direction="left" id="jvn-Bh-pG0">
+                    <connections>
+                        <action selector="swipeHandler:" destination="BYZ-38-t0r" id="eCh-1j-mjz"/>
+                    </connections>
+                </swipeGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="953" y="134"/>
         </scene>

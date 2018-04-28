@@ -9,7 +9,8 @@
 import UIKit
 
 class SatisfactionViewController: UIViewController {
-
+    
+    var nextViewController: UIViewController!
     @IBOutlet weak var satisfaction1Button: UIButton!
     @IBOutlet weak var satisfaction2Button: UIButton!
     @IBOutlet weak var satisfaction3Button: UIButton!

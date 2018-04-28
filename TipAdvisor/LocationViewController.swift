@@ -16,7 +16,8 @@ protocol CountryDelegate
 }
 
 class LocationViewController: UIViewController, CLLocationManagerDelegate, UIPickerViewDelegate, UIPickerViewDataSource, CountryDelegate {
-
+    
+    var nextViewController: UIViewController!
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var countryPickerView: UIPickerView!
     private var locationManager: CLLocationManager!
@@ -37,6 +38,12 @@ class LocationViewController: UIViewController, CLLocationManagerDelegate, UIPic
         locationManager.requestWhenInUseAuthorization()
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.startUpdatingLocation()
+        
+        if let navController = self.navigationController, navController.viewControllers.count >= 2 {
+            let viewController = navController.viewControllers[navController.viewControllers.count - 2]
+        } else {
+            
+        }
     }
     
 
@@ -57,6 +64,12 @@ class LocationViewController: UIViewController, CLLocationManagerDelegate, UIPic
         countryPickerView.delegate = self
         self.readFile()
         countryPickerView.reloadAllComponents()
+        
+        //for swipte gesture purposes
+//        if let navController = self.navigationController, navController.viewControllers.count >= 2 {
+//            //sets view controller equal to previous
+//            navController.viewControllers[navController.viewControllers.count - 2].nextViewController
+//        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -93,6 +106,8 @@ class LocationViewController: UIViewController, CLLocationManagerDelegate, UIPic
                 self.cityString = pm.locality!
                 self.countryString = pm.country!
                 self.messageLabel.text = "Looks like you are in: \(pm.country!)"
+                self.locationManager.stopUpdatingLocation()
+                
                 
                 
                 if (self.countryList.count>0) {
@@ -172,7 +187,7 @@ class LocationViewController: UIViewController, CLLocationManagerDelegate, UIPic
 
 
     
-    // MARK: - Navigatio
+    // MARK: - Navigation
 //     In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?){
         self.tipValue = NSString(string: self.tipLookUp[self.countryString]!).floatValue
