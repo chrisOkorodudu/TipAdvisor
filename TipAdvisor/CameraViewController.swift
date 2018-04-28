@@ -8,9 +8,12 @@
 
 import UIKit
 
-class CameraViewController: UIViewController {
+class CameraViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
 
     @IBOutlet weak var imageView: UIImageView!
+    var imagePicker: UIImagePickerController!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -23,7 +26,19 @@ class CameraViewController: UIViewController {
     }
     
     @IBAction func takePhoto(_ sender: UIButton) {
+        print("inside takePhoto")
+        imagePicker =  UIImagePickerController()
+        imagePicker.delegate = self
+        imagePicker.sourceType = .camera
         
+        present(imagePicker, animated: true, completion: nil)
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        print("***HELLO***")
+        imageView.image = info[UIImagePickerControllerOriginalImage] as? UIImage
+        imagePicker.dismiss(animated: true, completion: nil)
+        print("anyone here/?")
     }
     
     /*
