@@ -43,7 +43,9 @@ class LocationViewController: UIViewController, CLLocationManagerDelegate, UIPic
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        self.navigationController?.isNavigationBarHidden = false
+        self.navigationController?.navigationBar.backgroundColor = UIColor(red: 38/255, green: 84/255, blue: 124/255, alpha: 1)
+        self.navigationController?.navigationBar.isTranslucent = false
         self.view.backgroundColor = UIColor(red: 38/255, green: 84/255, blue: 124/255, alpha: 1)
         
         
