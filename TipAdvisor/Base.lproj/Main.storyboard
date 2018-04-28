@@ -370,35 +370,66 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="JpJ-fa-1uC">
-                                <rect key="frame" x="37" y="114" width="300" height="256"/>
-                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CH8-nv-39t">
-                                <rect key="frame" x="149" y="473" width="76" height="30"/>
+                                <rect key="frame" x="42" y="581" width="76" height="30"/>
+                                <color key="backgroundColor" red="1" green="0.81960784310000001" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Take Photo"/>
                                 <connections>
                                     <action selector="takePhoto:" destination="eFG-Et-y6D" eventType="touchUpInside" id="LiP-Ja-pLh"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sIi-HG-yeh">
+                                <rect key="frame" x="308" y="581" width="34" height="30"/>
+                                <color key="backgroundColor" red="1" green="0.81960784310000001" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Crop"/>
+                                <connections>
+                                    <action selector="crop:" destination="eFG-Et-y6D" eventType="touchUpInside" id="ccg-ak-qXv"/>
+                                </connections>
+                            </button>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uu8-av-hoK">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" alpha="0.75" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="JpJ-fa-1uC">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                    </imageView>
+                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MKu-YN-P1S" customClass="CropAreaView" customModule="TipAdvisor" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="243" width="375" height="150"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="JpJ-fa-1uC" secondAttribute="trailing" id="Aqv-sN-bVY"/>
+                                    <constraint firstItem="JpJ-fa-1uC" firstAttribute="centerY" secondItem="uu8-av-hoK" secondAttribute="centerY" id="TD5-FX-cbX"/>
+                                    <constraint firstItem="JpJ-fa-1uC" firstAttribute="top" secondItem="uu8-av-hoK" secondAttribute="top" id="g2Y-kB-Rzq"/>
+                                    <constraint firstItem="JpJ-fa-1uC" firstAttribute="centerX" secondItem="uu8-av-hoK" secondAttribute="centerX" id="gPN-4N-11p"/>
+                                    <constraint firstItem="JpJ-fa-1uC" firstAttribute="leading" secondItem="uu8-av-hoK" secondAttribute="leading" id="mi3-RA-ne9"/>
+                                    <constraint firstAttribute="bottom" secondItem="JpJ-fa-1uC" secondAttribute="bottom" id="mwn-GU-nZt"/>
+                                </constraints>
+                            </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="qHL-0G-Dm1" firstAttribute="bottom" secondItem="CH8-nv-39t" secondAttribute="bottom" constant="164" id="DbP-vt-ZIT"/>
-                            <constraint firstItem="JpJ-fa-1uC" firstAttribute="leading" secondItem="qHL-0G-Dm1" secondAttribute="leading" constant="37" id="Ntv-7A-6wC"/>
-                            <constraint firstItem="CH8-nv-39t" firstAttribute="centerX" secondItem="qHL-0G-Dm1" secondAttribute="centerX" id="XVt-en-97U"/>
-                            <constraint firstItem="JpJ-fa-1uC" firstAttribute="top" secondItem="qHL-0G-Dm1" secondAttribute="top" constant="50" id="ljt-oB-DFG"/>
-                            <constraint firstItem="CH8-nv-39t" firstAttribute="top" secondItem="JpJ-fa-1uC" secondAttribute="bottom" constant="103" id="qQ8-XM-gFR"/>
-                            <constraint firstItem="qHL-0G-Dm1" firstAttribute="trailing" secondItem="JpJ-fa-1uC" secondAttribute="trailing" constant="38" id="zig-iK-J2P"/>
+                            <constraint firstItem="uu8-av-hoK" firstAttribute="leading" secondItem="0t1-gU-6B8" secondAttribute="leading" id="6ef-7R-PqL"/>
+                            <constraint firstItem="uu8-av-hoK" firstAttribute="bottom" secondItem="qHL-0G-Dm1" secondAttribute="bottom" id="B3J-Pm-hCk"/>
+                            <constraint firstItem="sIi-HG-yeh" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="CH8-nv-39t" secondAttribute="trailing" constant="8" symbolic="YES" id="bVT-ip-0V9"/>
+                            <constraint firstItem="uu8-av-hoK" firstAttribute="top" secondItem="0t1-gU-6B8" secondAttribute="top" id="mWg-Te-Rty"/>
+                            <constraint firstAttribute="trailing" secondItem="sIi-HG-yeh" secondAttribute="trailing" constant="33" id="sIk-Sx-d6m"/>
+                            <constraint firstItem="CH8-nv-39t" firstAttribute="baseline" secondItem="sIi-HG-yeh" secondAttribute="baseline" id="uOf-fK-oEp"/>
+                            <constraint firstItem="CH8-nv-39t" firstAttribute="leading" secondItem="qHL-0G-Dm1" secondAttribute="leading" constant="42" id="w5k-SF-ZtB"/>
+                            <constraint firstAttribute="trailing" secondItem="uu8-av-hoK" secondAttribute="trailing" id="wuS-up-P5f"/>
+                            <constraint firstItem="CH8-nv-39t" firstAttribute="top" secondItem="qHL-0G-Dm1" secondAttribute="top" constant="517" id="xYl-q1-H3c"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="qHL-0G-Dm1"/>
                     </view>
                     <connections>
                         <outlet property="imageView" destination="JpJ-fa-1uC" id="c0E-zN-fq6"/>
+                        <outlet property="scrollView" destination="uu8-av-hoK" id="Aug-S3-5iQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FNe-9b-z4d" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1260" y="904"/>
+            <point key="canvasLocation" x="1260" y="903.59820089955031"/>
         </scene>
         <!--Bill Scanner View Controller-->
         <scene sceneID="wd3-dB-kBH">

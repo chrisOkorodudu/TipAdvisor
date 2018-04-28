@@ -12,6 +12,7 @@ class CameraViewController: UIViewController, UINavigationControllerDelegate, UI
 
     @IBOutlet weak var imageView: UIImageView!
     var imagePicker: UIImagePickerController!
+    @IBOutlet weak var scrollView: UIScrollView!
     
     
     override func viewDidLoad() {
@@ -41,14 +42,13 @@ class CameraViewController: UIViewController, UINavigationControllerDelegate, UI
         print("anyone here/?")
     }
     
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    @IBAction func crop(_ sender: UIButton) {
+        
     }
-    */
+}
 
+class CropAreaView: UIView {
+    override func point(inside point: CGPoint, with event: UIEvent?) -> Bool {
+        return false
+    }
 }
