@@ -199,9 +199,6 @@ class LocationViewController: UIViewController, CLLocationManagerDelegate, UIPic
                 }
             }
         }
-//        if segue.destination.isKind(of: SatisfactionViewController) == true {
-//
-//        }
     }
 
 

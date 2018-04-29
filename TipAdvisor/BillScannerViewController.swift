@@ -7,12 +7,24 @@
 //
 
 import UIKit
+import TesseractOCR
 
-class BillScannerViewController: UIViewController {
 
+
+class BillScannerViewController: UIViewController, G8TesseractDelegate {
+
+    var billImage: UIImage!
+    @IBOutlet weak var recognizedTotal: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        if let tesseract = G8Tesseract(language: "eng") {
+            tesseract.delegate = self
+            tesseract.image = billImage.g8_blackAndWhite()
+            tesseract.recognize()
+            self.recognizedTotal.text = tesseract.recognizedText
+            print(tesseract.recognizedText)
+        }
         // Do any additional setup after loading the view.
     }
 
